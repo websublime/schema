@@ -1,0 +1,25 @@
+{
+  "name": "@websublime/schema",
+  "version": "1.0.0",
+  "source": "./src",
+  "main": "./dist/schema.umd.js",
+  "module": "./dist/schema.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/schema.es.js",
+      "require": "./dist/schema.umd.js"
+    }
+  },
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --verbose -i"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.11.12",
+    "typescript": "^4.5.2",
+    "jest": "^26.1.0",
+    "ts-jest": "^26.1.1"
+  }
+}
