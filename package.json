@@ -12,7 +12,6 @@
   },
   "types": "./dist/@types/index.d.ts",
   "files": ["dist/", "./LICENSE.md", "./README.md"],
-  "types": "src/index.ts",
   "scripts": {
     "build": "node scripts/build.js && yarn types",
     "types": "tsc --emitDeclarationOnly",
