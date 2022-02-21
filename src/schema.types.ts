@@ -1,3 +1,10 @@
+/**
+ * Copyright Websublime All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://websublime.dev/license
+ */
+
 import { ErrorModel } from './models/error.model';
 import { ArraySchemaType } from './schema-types/array.schema-type';
 import { BaseSchemaType } from './schema-types/base.schema-type';

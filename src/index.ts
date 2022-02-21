@@ -1,3 +1,10 @@
+/**
+ * Copyright Websublime All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://websublime.dev/license
+ */
+
 export * from './constants/error-messages.constant';
 export * from './constants/schema-type.constant';
 export * from './models/error.model';

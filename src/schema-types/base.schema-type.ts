@@ -1,3 +1,10 @@
+/**
+ * Copyright Websublime All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://websublime.dev/license
+ */
+
 import { errorMessages } from '../constants/error-messages.constant';
 import { schemaType } from '../constants/schema-type.constant';
 import { ErrorModel } from '../models/error.model';
@@ -9,7 +16,7 @@ import { CheckResult, Maybe, Rule } from '../schema.types';
  * @public
  */
 export class BaseSchemaType<T = any> {
-  type: string;
+  type!: string;
 
   /**
    * schema for ArraySchemaType items
