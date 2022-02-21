@@ -10,14 +10,21 @@
       "require": "./dist/schema.umd.js"
     }
   },
+  "types": "./dist/@types/index.d.ts",
+  "files": ["dist/", "./LICENSE.md", "./README.md"],
   "types": "src/index.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "node scripts/build.js && yarn types",
+    "types": "tsc --emitDeclarationOnly",
     "test": "jest --verbose -i"
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",
     "@types/node": "^16.11.12",
+    "@changesets/changelog-github": "^0.3.0",
+    "@changesets/cli": "^2.14.1",
+    "@changesets/get-github-info": "^0.5.0",
+    "esbuild": "^0.14.23",
     "typescript": "^4.5.2",
     "jest": "^26.1.0",
     "ts-jest": "^26.1.1"

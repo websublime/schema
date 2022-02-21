@@ -1,8 +1,10 @@
 /**
- * Error Model
+ * Copyright Websublime All Rights Reserved.
  *
- * @public
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://websublime.dev/license
  */
+
 export class ErrorModel {
   /**
    * Key identifier
