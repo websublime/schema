@@ -29,9 +29,9 @@ export class ErrorModel {
   constructor(data: Partial<ErrorModel> = {}) {
     const {
       constraints = null,
-      i18n = 'KIT.ERROR.UNKNOWN',
+      i18n = 'ERROR.UNKNOWN',
       key = 'UNKNOWN',
-      value = null
+      value = null,
     } = data || {};
 
     this.key = key;

@@ -137,4 +137,21 @@ describe("> ArrayType", () => {
       errorMessages.array.minLength
     );
   });
+
+  it("Should not check nested items, drill = false, only arrayType rules", async () => {
+    const arr1 = ArrayType<string>()
+      .minLength(2, "error1")
+      .of(StringType().isEmail("error2"));
+
+    const check1 = await arr1.check(
+      ["miguel.ramos@websublime.com", "Upps", "ddd@bbb.com"],
+      null,
+      null,
+      false
+    );
+
+    expect(check1.hasError).toBeFalsy();
+    expect(check1.isValid).toBeTruthy();
+    expect(check1.items).toBeUndefined();
+  });
 });

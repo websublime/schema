@@ -1,6 +1,6 @@
 module.exports = {
   collectCoverage: true,
-  collectCoverageFrom: ["./src/next/**/*.{js,ts,tsx}", "!**/*.d.ts"],
+  collectCoverageFrom: ["./src/**/*.{js,ts,tsx}", "!**/*.d.ts"],
   coverageThreshold: {
     global: {
       branches: 70,

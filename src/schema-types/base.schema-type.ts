@@ -5,10 +5,10 @@
  * found in the LICENSE file at https://websublime.dev/license
  */
 
-import { errorMessages } from '../constants/error-messages.constant';
-import { schemaType } from '../constants/schema-type.constant';
-import { ErrorModel } from '../models/error.model';
-import { CheckResult, Maybe, Rule } from '../schema.types';
+import { errorMessages } from "../constants/error-messages.constant";
+import { schemaType } from "../constants/schema-type.constant";
+import { ErrorModel } from "../models/error.model";
+import { CheckResult, Maybe, Rule } from "../schema.types";
 
 /**
  * Base type model validation
@@ -123,7 +123,7 @@ export class BaseSchemaType<T = any> {
     return (
       value === null ||
       value === undefined ||
-      (typeof value === 'string' && value.trim() === '')
+      (typeof value === "string" && value.trim() === "")
     );
   }
 
@@ -162,6 +162,6 @@ export class BaseSchemaType<T = any> {
  *
  * @public
  */
-export function BaseType<T = any>() {
-  return new BaseSchemaType<T>();
+export function BaseType<T = any>(st = schemaType.property) {
+  return new BaseSchemaType<T>(st);
 }
