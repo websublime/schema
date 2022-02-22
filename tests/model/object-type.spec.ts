@@ -120,4 +120,24 @@ describe("> ObjectType", () => {
     expect(parentCheckStatus2?.properties?.email.hasError).toBeFalsy();
     expect(parentCheckStatus2?.properties?.age.hasError).toBeFalsy();
   });
+
+  it("Should not check nested properties, drill = false, only objectType rules", async () => {
+    const schemaObject = ObjectType<{ age: number; email: string }>({
+      age: NumberType().min(18),
+      email: StringType().isEmail()
+    });
+
+    let validation = await schemaObject.check(
+      {
+        age: 17,
+        email: "miguel.ramos@websublime.com"
+      },
+      null,
+      null,
+      false
+    );
+
+    expect(validation.properties).toBeUndefined();
+    expect(validation.isValid).toBeTruthy();
+  });
 });

@@ -5,9 +5,9 @@
  * found in the LICENSE file at https://websublime.dev/license
  */
 
-import { errorMessages } from '../constants/error-messages.constant';
-import { schemaType } from '../constants/schema-type.constant';
-import { BaseSchemaType } from './base.schema-type';
+import { errorMessages } from "../constants/error-messages.constant";
+import { schemaType } from "../constants/schema-type.constant";
+import { BaseSchemaType } from "./base.schema-type";
 
 /**
  * String model type validation
@@ -15,7 +15,7 @@ import { BaseSchemaType } from './base.schema-type';
  * @public
  */
 export class StringSchemaType extends BaseSchemaType<string> {
-  type = 'string';
+  type = "string";
 
   /**
    * Create StringSchemaType instance
@@ -28,7 +28,7 @@ export class StringSchemaType extends BaseSchemaType<string> {
     this.addRule({
       errorMessage,
       validationFn: (value) =>
-        this.isEmpty(value) ? true : typeof value === 'string'
+        this.isEmpty(value) ? true : typeof value === "string"
     });
   }
 
@@ -153,14 +153,18 @@ export class StringSchemaType extends BaseSchemaType<string> {
    * @public
    */
   isURL(errorMessage = errorMessages.string.isURL) {
-    const regexp = new RegExp(
-      '^(?!mailto:)(?:(?:http|https|ftp)://|//)(?:\\S+(?::\\S*)?@)?(?:(?:(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}(?:\\.(?:[0-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))|(?:(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)(?:\\.(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)*(?:\\.(?:[a-z\\u00a1-\\uffff]{2,})))|localhost)(?::\\d{2,5})?(?:(/|\\?|#)[^\\s]*)?$',
-      'i'
-    );
+    const isURL = (value: string) => {
+      try {
+        new URL(value);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    };
 
     this.addRule({
       errorMessage,
-      validationFn: (value) => regexp.test(value)
+      validationFn: (value) => isURL(value)
     });
 
     return this;
