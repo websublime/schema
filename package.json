@@ -15,7 +15,8 @@
   "scripts": {
     "build": "node scripts/build.js && yarn types",
     "types": "tsc --emitDeclarationOnly",
-    "test": "jest --verbose -i"
+    "test": "jest --verbose -i",
+    "release": "yarn changeset publish"
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",
