@@ -1,6 +1,6 @@
 {
   "name": "@websublime/schema",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "source": "./src",
   "main": "./dist/schema.umd.js",
   "module": "./dist/schema.es.js",
@@ -37,7 +37,12 @@
     "url": "https://github.com/websublime/schema/issues"
   },
   "description": "Typescript data rules validation",
-  "keywords": ["typescript", "validation", "schema", "lib"],
+  "keywords": [
+    "typescript",
+    "validation",
+    "schema",
+    "lib"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
