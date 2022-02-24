@@ -1,6 +1,6 @@
 {
   "name": "@websublime/schema",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "source": "./src",
   "main": "./dist/schema.umd.js",
   "module": "./dist/schema.es.js",
@@ -11,7 +11,11 @@
     }
   },
   "types": "./dist/@types/index.d.ts",
-  "files": ["dist/", "./LICENSE.md", "./README.md"],
+  "files": [
+    "dist/",
+    "./LICENSE.md",
+    "./README.md"
+  ],
   "scripts": {
     "build": "node scripts/build.js && yarn types",
     "types": "tsc --emitDeclarationOnly",
