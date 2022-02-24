@@ -32,5 +32,27 @@
     "typescript": "^4.5.2",
     "jest": "^26.1.0",
     "ts-jest": "^26.1.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/websublime/schema/issues"
+  },
+  "description": "Typescript data rules validation",
+  "keywords": ["typescript", "validation", "schema", "lib"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/websublime/schema"
+  },
+  "author": {
+    "email": "miguel.marques.ramos@gmail.com",
+    "name": "Miguel Ramos",
+    "url": "https://miguelramos.dev"
+  },
+  "contributors": [
+    {
+      "email": "huzgo1@gmail.com",
+      "name": "Hugo Lago",
+      "url": "https://github.com/Hulago"
+    }
+  ]
 }
