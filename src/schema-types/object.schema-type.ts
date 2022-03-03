@@ -1,9 +1,12 @@
 /**
- * Copyright Websublime All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://websublime.dev/license
- */
+|--------------------------------------------------------------------------
+| Copyright Websublime All Rights Reserved.
+|--------------------------------------------------------------------------
+|
+| Use of this source code is governed by an MIT-style license that can be
+| found in the LICENSE file at https://websublime.dev/license
+|
+*/
 
 import { errorMessages } from '../constants/error-messages.constant';
 import { schemaType } from '../constants/schema-type.constant';
@@ -45,8 +48,11 @@ export class ObjectSchemaType<T> extends BaseSchemaType<T> {
 
   /**
    * Validate if an object is empty
-   * @param value
+   *
+   * @param value - Value
+   *
    * @returns
+   * @public
    */
   isEmpty(value: Maybe<T>): boolean {
     if (super.isEmpty(value)) {
@@ -64,14 +70,19 @@ export class ObjectSchemaType<T> extends BaseSchemaType<T> {
   }
 
   /**
+   * Shape a child object
    *
    * @param properties - Object properties
+   *
    * @public
+   *
    * @example
+   * ```
    * ObjectType().shape({
    *  name: StringType(),
    *  age: NumberType()
    * })
+   * ```
    */
   shape(properties: Properties<T>) {
     this.properties = properties;
@@ -79,6 +90,11 @@ export class ObjectSchemaType<T> extends BaseSchemaType<T> {
     return this;
   }
 
+  /**
+   * Check if object is valid.
+   *
+   * @public
+   */
   // eslint-disable-next-line max-params
   async check(
     value: Maybe<any>,
@@ -121,7 +137,7 @@ export class ObjectSchemaType<T> extends BaseSchemaType<T> {
 }
 
 /**
- * Creats instance ObjectType
+ * Creates instance ObjectType
  *
  * @public
  */

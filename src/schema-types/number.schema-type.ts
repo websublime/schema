@@ -1,9 +1,12 @@
 /**
- * Copyright Websublime All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://websublime.dev/license
- */
+|--------------------------------------------------------------------------
+| Copyright Websublime All Rights Reserved.
+|--------------------------------------------------------------------------
+|
+| Use of this source code is governed by an MIT-style license that can be
+| found in the LICENSE file at https://websublime.dev/license
+|
+*/
 
 import { errorMessages } from '../constants/error-messages.constant';
 import { schemaType } from '../constants/schema-type.constant';
@@ -36,6 +39,7 @@ export class NumberSchemaType extends BaseSchemaType<number> {
    * Test if number is integer.
    *
    * @param errorMessage - Error message
+   *
    * @public
    */
   isInteger(errorMessage = errorMessages.number.isInteger) {
@@ -52,6 +56,7 @@ export class NumberSchemaType extends BaseSchemaType<number> {
    *
    * @param regexp - Reg expression
    * @param errorMessage - Error message
+   *
    * @public
    */
   pattern(regexp: RegExp, errorMessage = errorMessages.number.pattern) {
@@ -67,8 +72,9 @@ export class NumberSchemaType extends BaseSchemaType<number> {
   /**
    * Test if is one of other types included
    *
-   * @param values [description]
+   * @param values - Other values
    * @param errorMessage - Error message
+   *
    * @public
    */
   isOneOf(values: number[], errorMessage = errorMessages.number.isOneOf) {
@@ -87,6 +93,7 @@ export class NumberSchemaType extends BaseSchemaType<number> {
    * @param min - Minimum value
    * @param max - Maximum value
    * @param errorMessage - Error message
+   *
    * @public
    */
   range(min: number, max: number, errorMessage = errorMessages.number.range) {
@@ -104,6 +111,7 @@ export class NumberSchemaType extends BaseSchemaType<number> {
    *
    * @param min - Minimum value
    * @param errorMessage - Error message
+   *
    * @public
    */
   min(min: number, errorMessage = errorMessages.number.min) {
@@ -121,6 +129,7 @@ export class NumberSchemaType extends BaseSchemaType<number> {
    *
    * @param max - Maximum value
    * @param errorMessage - Error message
+   *
    * @public
    */
   max(max: number, errorMessage = errorMessages.number.max) {
@@ -135,7 +144,7 @@ export class NumberSchemaType extends BaseSchemaType<number> {
 }
 
 /**
- * Creats instance NumberType
+ * Creates instance NumberType
  *
  * @public
  */
