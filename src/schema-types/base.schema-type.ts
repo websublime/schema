@@ -1,9 +1,12 @@
 /**
- * Copyright Websublime All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://websublime.dev/license
- */
+|--------------------------------------------------------------------------
+| Copyright Websublime All Rights Reserved.
+|--------------------------------------------------------------------------
+|
+| Use of this source code is governed by an MIT-style license that can be
+| found in the LICENSE file at https://websublime.dev/license
+|
+*/
 
 import { errorMessages } from "../constants/error-messages.constant";
 import { schemaType } from "../constants/schema-type.constant";
@@ -68,6 +71,7 @@ export class BaseSchemaType<T = any> {
    * @param value - Value
    * @param data - Data
    * @param fieldName - Field
+   *
    * @public
    */
   async check(
@@ -116,8 +120,11 @@ export class BaseSchemaType<T = any> {
 
   /**
    * Validate if value is empty
-   * @param value
+   *
+   * @param value - Value
+   *
    * @returns
+   * @public
    */
   isEmpty(value: Maybe<T>): boolean {
     return (
@@ -129,8 +136,11 @@ export class BaseSchemaType<T = any> {
 
   /**
    * Add validation rule.
-   * @param param0 Rule object.
+   *
+   * @param param - Rule object.
+   *
    * @returns
+   * @public
    */
   addRule({ errorMessage, params = null, validationFn }: Rule) {
     this.rules.push({
@@ -146,6 +156,7 @@ export class BaseSchemaType<T = any> {
    *
    * @param errorMessage - Error message
    * @param trim - Trim string spaces
+   *
    * @public
    */
   isRequired(errorMessage = this.requiredErrorMessage, trim = true) {
@@ -158,7 +169,7 @@ export class BaseSchemaType<T = any> {
 }
 
 /**
- * Creats instance MixedType
+ * Creates instance MixedType
  *
  * @public
  */

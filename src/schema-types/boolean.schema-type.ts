@@ -1,9 +1,12 @@
 /**
- * Copyright Websublime All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://websublime.dev/license
- */
+|--------------------------------------------------------------------------
+| Copyright Websublime All Rights Reserved.
+|--------------------------------------------------------------------------
+|
+| Use of this source code is governed by an MIT-style license that can be
+| found in the LICENSE file at https://websublime.dev/license
+|
+*/
 
 import { errorMessages } from '../constants/error-messages.constant';
 import { schemaType } from '../constants/schema-type.constant';
@@ -34,7 +37,9 @@ export class BooleanSchemaType extends BaseSchemaType<boolean> {
 }
 
 /**
- * Creats instance BooleanType
+ * Creates instance BooleanType
+ *
+ * @param errorMessage - Error message
  *
  * @public
  */

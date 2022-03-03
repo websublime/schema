@@ -1,9 +1,12 @@
 /**
- * Copyright Websublime All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://websublime.dev/license
- */
+|--------------------------------------------------------------------------
+| Copyright Websublime All Rights Reserved.
+|--------------------------------------------------------------------------
+|
+| Use of this source code is governed by an MIT-style license that can be
+| found in the LICENSE file at https://websublime.dev/license
+|
+*/
 
 import { errorMessages } from '../constants/error-messages.constant';
 import { schemaType } from '../constants/schema-type.constant';
@@ -22,7 +25,6 @@ export class DateSchemaType extends BaseSchemaType<Date | string> {
    *
    * @param errorMessage - Error message
    */
-
   constructor(errorMessage: string) {
     super(schemaType.property);
 
@@ -41,6 +43,7 @@ export class DateSchemaType extends BaseSchemaType<Date | string> {
    * @param min - Minimum date
    * @param max - Maximum date
    * @param errorMessage - Error message
+   *
    * @public
    */
   range(
@@ -63,6 +66,7 @@ export class DateSchemaType extends BaseSchemaType<Date | string> {
    *
    * @param min - Minimum date
    * @param errorMessage - Error message
+   *
    * @public
    */
   min(min: string | Date, errorMessage = errorMessages.date.min) {
@@ -80,6 +84,7 @@ export class DateSchemaType extends BaseSchemaType<Date | string> {
    *
    * @param max - Maximum date
    * @param errorMessage - Error message
+   *
    * @public
    */
   max(max: string | Date, errorMessage = errorMessages.date.max) {
@@ -94,7 +99,7 @@ export class DateSchemaType extends BaseSchemaType<Date | string> {
 }
 
 /**
- * Creats instance DateType
+ * Creates instance DateType
  *
  * @public
  */

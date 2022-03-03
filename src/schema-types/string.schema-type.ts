@@ -1,9 +1,12 @@
 /**
- * Copyright Websublime All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://websublime.dev/license
- */
+|--------------------------------------------------------------------------
+| Copyright Websublime All Rights Reserved.
+|--------------------------------------------------------------------------
+|
+| Use of this source code is governed by an MIT-style license that can be
+| found in the LICENSE file at https://websublime.dev/license
+|
+*/
 
 import { errorMessages } from "../constants/error-messages.constant";
 import { schemaType } from "../constants/schema-type.constant";
@@ -36,6 +39,7 @@ export class StringSchemaType extends BaseSchemaType<string> {
    * Test if value contains only letters
    *
    * @param errorMessage - Error message
+   *
    * @public
    */
   containsLetter(errorMessage = errorMessages.string.containsLetter) {
@@ -51,6 +55,7 @@ export class StringSchemaType extends BaseSchemaType<string> {
    * Test if value is uppercase
    *
    * @param errorMessage - Error message
+   *
    * @public
    */
   containsUppercaseLetter(
@@ -68,6 +73,7 @@ export class StringSchemaType extends BaseSchemaType<string> {
    * Test if value is lowercase
    *
    * @param errorMessage - Error message
+   *
    * @public
    */
   containsLowercaseLetter(
@@ -85,6 +91,7 @@ export class StringSchemaType extends BaseSchemaType<string> {
    * Test if value contains letters only
    *
    * @param errorMessage - Error message
+   *
    * @public
    */
   containsLetterOnly(errorMessage = errorMessages.string.containsLetterOnly) {
@@ -100,6 +107,7 @@ export class StringSchemaType extends BaseSchemaType<string> {
    * Test if value contains numbers
    *
    * @param errorMessage - Error message
+   *
    * @public
    */
   containsNumber(errorMessage = errorMessages.string.containsNumber) {
@@ -116,6 +124,7 @@ export class StringSchemaType extends BaseSchemaType<string> {
    *
    * @param values - Values to test
    * @param errorMessage - Error message
+   *
    * @public
    */
   isOneOf(values: string[], errorMessage = errorMessages.string.isOneOf) {
@@ -132,6 +141,7 @@ export class StringSchemaType extends BaseSchemaType<string> {
    * Test if is a valid email
    *
    * @param errorMessage - Error message
+   *
    * @public
    */
   isEmail(errorMessage = errorMessages.string.isEmail) {
@@ -150,6 +160,7 @@ export class StringSchemaType extends BaseSchemaType<string> {
    * Test if is a valid url
    *
    * @param errorMessage - Error message
+   *
    * @public
    */
   isURL(errorMessage = errorMessages.string.isURL) {
@@ -174,6 +185,7 @@ export class StringSchemaType extends BaseSchemaType<string> {
    * Test if is a hex value
    *
    * @param errorMessage - Error message
+   *
    * @public
    */
   isHex(errorMessage = errorMessages.string.isHex) {
@@ -192,6 +204,7 @@ export class StringSchemaType extends BaseSchemaType<string> {
    *
    * @param regexp - Reg expression
    * @param errorMessage - Error message
+   *
    * @public
    */
   pattern(regexp: RegExp, errorMessage = errorMessages.string.pattern) {
@@ -210,6 +223,7 @@ export class StringSchemaType extends BaseSchemaType<string> {
    * @param minLength - Minimum length
    * @param maxLength - Maximum length
    * @param errorMessage - Error message
+   *
    * @public
    */
   rangeLength(
@@ -232,6 +246,7 @@ export class StringSchemaType extends BaseSchemaType<string> {
    *
    * @param minLength - Minimum length
    * @param errorMessage - Error message
+   *
    * @public
    */
   minLength(minLength: number, errorMessage = errorMessages.string.minLength) {
@@ -249,6 +264,8 @@ export class StringSchemaType extends BaseSchemaType<string> {
    *
    * @param maxLength - Maximum length
    * @param errorMessage - Error message
+   *
+   * @public
    */
   maxLength(maxLength: number, errorMessage = errorMessages.string.maxLength) {
     this.addRule({
@@ -262,7 +279,7 @@ export class StringSchemaType extends BaseSchemaType<string> {
 }
 
 /**
- * Creats instance StringType
+ * Creates instance StringType
  *
  * @public
  */

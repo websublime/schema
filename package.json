@@ -2,14 +2,8 @@
   "name": "@websublime/schema",
   "version": "1.0.2",
   "source": "./src",
-  "main": "./dist/schema.umd.js",
-  "module": "./dist/schema.es.js",
-  "exports": {
-    ".": {
-      "import": "./dist/schema.es.js",
-      "require": "./dist/schema.umd.js"
-    }
-  },
+  "main": "./dist/schema.cjs.js",
+  "module": "./dist/schema.esm.js",
   "types": "./dist/@types/index.d.ts",
   "files": [
     "dist/",
@@ -17,21 +11,26 @@
     "./README.md"
   ],
   "scripts": {
-    "build": "node scripts/build.js && yarn types",
+    "docs": "api-documenter markdown --input-folder dist --output-folder dist/docs",
+    "build": "yarn types && node scripts/build.js && yarn docs",
     "types": "tsc --emitDeclarationOnly",
     "test": "jest --verbose -i",
     "release": "yarn changeset publish"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.11.12",
     "@changesets/changelog-github": "^0.3.0",
     "@changesets/cli": "^2.14.1",
     "@changesets/get-github-info": "^0.5.0",
+    "@microsoft/api-documenter": "^7.11.0",
+    "@microsoft/api-extractor": "^7.12.0",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.11.12",
+    "@types/fs-extra": "^9.0.4",
     "esbuild": "^0.14.23",
-    "typescript": "^4.5.2",
+    "fs-extra": "^10.0.1",
     "jest": "^26.1.0",
-    "ts-jest": "^26.1.1"
+    "ts-jest": "^26.1.1",
+    "typescript": "^4.5.2"
   },
   "bugs": {
     "url": "https://github.com/websublime/schema/issues"

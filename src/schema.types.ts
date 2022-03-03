@@ -1,9 +1,12 @@
 /**
- * Copyright Websublime All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://websublime.dev/license
- */
+|--------------------------------------------------------------------------
+| Copyright Websublime All Rights Reserved.
+|--------------------------------------------------------------------------
+|
+| Use of this source code is governed by an MIT-style license that can be
+| found in the LICENSE file at https://websublime.dev/license
+|
+*/
 
 import { ErrorModel } from './models/error.model';
 import { ArraySchemaType } from './schema-types/array.schema-type';
@@ -17,6 +20,8 @@ import { StringSchemaType } from './schema-types/string.schema-type';
 /**
  * Model Interface
  * Can implement a toJSON method to use with JSON.stringify
+ *
+ * @public
  */
 export interface Model {
   toJSON?(): any;
@@ -24,6 +29,8 @@ export interface Model {
 
 /**
  * Infer which schema type is base on the native type
+ *
+ * @public
  */
 export type InferSchemaType<T> = T extends number | null | undefined
   ? NumberSchemaType
@@ -41,6 +48,8 @@ export type InferSchemaType<T> = T extends number | null | undefined
 
 /**
  * Properties of ObjectSchemaType
+ *
+ * @public
  */
 export type Properties<T = any> =
   | {
@@ -61,6 +70,8 @@ export interface Rule<V = any, P = any, C = any> {
 
 /**
  * Validation funciton type
+ *
+ * @public
  */
 export type validationFnType<V, P, C> = (
   value: V,
@@ -68,10 +79,17 @@ export type validationFnType<V, P, C> = (
   stick?: C
 ) => boolean | Promise<boolean>;
 
+/**
+ * One of the values
+ *
+ * @public
+ */
 export type Maybe<T> = T | null | undefined;
 
 /**
  * Result from schema validation check.
+ *
+ * @public
  */
 export interface CheckResult {
   hasError: boolean;
