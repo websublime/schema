@@ -1,5 +1,14 @@
 # @websublime/schema
 
+## 1.1.0
+
+### Minor Changes
+
+- [#10](https://github.com/websublime/schema/pull/10) [`9c254a5`](https://github.com/websublime/schema/commit/9c254a594a2cb8819880ae3eddb1fa4b5ec309c2) Thanks [@miguelramos](https://github.com/miguelramos)! - Building system and commonjs.
+
+  Improvement on building system. Remove umd support and added commonjs support. Also added microsoft tool for api
+  documentation and typing unification.
+
 ## 1.0.2
 
 ### Patch Changes
