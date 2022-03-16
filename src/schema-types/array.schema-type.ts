@@ -39,38 +39,38 @@ export class ArraySchemaType<T> extends BaseSchemaType<Array<T>> {
 
     this.addRule({
       errorMessage,
-      validationFn: (value) =>
-        this.isEmpty(value) ? true : Array.isArray(value)
+      validationFn: value => (this.isEmpty(value) ? true : Array.isArray(value))
     });
   }
 
-  /**
-   * Validation of an empty array
-   *
-   * @param value - Value
-   *
-   * @returns
-   * @public
-   */
-  isEmpty(value: Maybe<Array<T>>) {
-    if (super.isEmpty(value)) {
-      return true;
-    }
+  // /**
+  //  * Validation of an empty array
+  //  *
+  //  * @param value - Value
+  //  *
+  //  * @returns
+  //  * @public
+  //  */
+  // isEmpty(value: Maybe<Array<T>>) {
+  //   if (super.isEmpty(value)) {
+  //     return true;
+  //   }
+  //   return false;
 
-    if (value && value.length === 0) {
-      return true;
-    } else {
-      const childsArray: boolean[] = [];
+  //   // if (value && value.length === 0) {
+  //   //   return true;
+  //   // } else {
+  //   //   const childsArray: boolean[] = [];
 
-      value?.forEach((item) => {
-        if (this.items) {
-          // TODO remove any
-          childsArray.push(this.items.isEmpty(item as never));
-        }
-      });
-      return childsArray.reduce((acc, item) => acc && item, true);
-    }
-  }
+  //   //   value?.forEach((item) => {
+  //   //     if (this.items) {
+  //   //       // TODO remove any
+  //   //       childsArray.push(this.items.isEmpty(item as never));
+  //   //     }
+  //   //   });
+  //   //   return childsArray.reduce((acc, item) => acc && item, true);
+  //   // }
+  // }
 
   /**
    * Set items model type
@@ -177,7 +177,7 @@ export class ArraySchemaType<T> extends BaseSchemaType<Array<T>> {
     this.addRule({
       errorMessage,
       params: { minLength },
-      validationFn: (value) => value.length >= minLength
+      validationFn: value => value.length >= minLength
     });
 
     return this;
@@ -195,7 +195,7 @@ export class ArraySchemaType<T> extends BaseSchemaType<Array<T>> {
     this.addRule({
       errorMessage,
       params: { maxLength },
-      validationFn: (value) => value.length <= maxLength
+      validationFn: value => value.length <= maxLength
     });
     return this;
   }

@@ -30,7 +30,7 @@ export class BooleanSchemaType extends BaseSchemaType<boolean> {
 
     this.addRule({
       errorMessage,
-      validationFn: (value) =>
+      validationFn: value =>
         this.isEmpty(value) ? true : typeof value === 'boolean'
     });
   }
