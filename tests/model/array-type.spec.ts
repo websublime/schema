@@ -6,20 +6,41 @@ import {
   NumberType,
   ObjectType,
   StringType
-} from "../../src/index";
+} from '../../src/index';
 
-describe("> ArrayType", () => {
-  it("Should be a valid array", async () => {
+describe('> ArrayType', () => {
+  it.only('Should be a valid array', async () => {
+    const schema = ArrayType<string>()
+      .minLength(2, 'Custom message min length')
+      .of(StringType().isEmail());
+
+    const validation = await schema.check(['hulake-websublime.com']);
+
+    expect(validation.hasError).toBeTruthy();
+
+    expect(validation.errors[0].i18n).toBe('Custom message min length');
+
+    const [validationItem1] = validation.items || [];
+
+    expect(validationItem1.hasError).toBeTruthy();
+    expect(validationItem1.errors[0].key).toBe(0); // context position for the array
+
+    console.log(validationItem1.errors[0].i18n); // ERRORS.STRING.IS_EMAIL
+  });
+
+  it('Should be a valid array', async () => {
     const arr1 = ArrayType<string>()
-      .minLength(2, "error1")
-      .of(StringType().isEmail("error2"));
+      .minLength(2, 'error1')
+      .of(StringType().isEmail('error2'));
 
-    const arr2 = ArrayType<string>().minLength(2).of(StringType().isEmail());
+    const arr2 = ArrayType<string>()
+      .minLength(2)
+      .of(StringType().isEmail());
 
     const check1 = await arr1.check([
-      "miguel.ramos@websublime.com",
-      "ddddd@d.com",
-      "ddd@bbb.com"
+      'miguel.ramos@websublime.com',
+      'ddddd@d.com',
+      'ddd@bbb.com'
     ]);
 
     expect(check1.hasError).toBeFalsy();
@@ -28,9 +49,9 @@ describe("> ArrayType", () => {
     expect(check1.items && check1.items[2].hasError).toBeFalsy();
 
     const check2 = await arr2.check([
-      "miguel.ramos@websublime.com",
-      "error_email",
-      "ddd@bbb.com"
+      'miguel.ramos@websublime.com',
+      'error_email',
+      'ddd@bbb.com'
     ]);
 
     expect(check2.hasError).toBeFalsy();
@@ -46,9 +67,9 @@ describe("> ArrayType", () => {
     expect(check3.errors[0].i18n).toEqual(errorMessages.array.minLength);
 
     const check4 = await arr2.check([
-      "miguel.ramos@websublime.com",
-      "error_email",
-      "ddd@bbb.com"
+      'miguel.ramos@websublime.com',
+      'error_email',
+      'ddd@bbb.com'
     ]);
 
     expect(check4.items && check4.items[1].errors[0].i18n).toEqual(
@@ -57,7 +78,7 @@ describe("> ArrayType", () => {
     expect(check4.items && check4.items[1].errors[0].key).toEqual(1);
   });
 
-  it("Should support array nested objects", async () => {
+  it('Should support array nested objects', async () => {
     const schema = ArrayType().of(
       ObjectType().shape({
         age: NumberType().min(18),
@@ -66,9 +87,9 @@ describe("> ArrayType", () => {
     );
 
     const checkStatus = await schema.check([
-      "miguel.ramos@websublime.com",
-      { age: 19, email: "error_email" },
-      { age: 17, email: "error_email" }
+      'miguel.ramos@websublime.com',
+      { age: 19, email: 'error_email' },
+      { age: 17, email: 'error_email' }
     ]);
 
     const firstElement = checkStatus.items && checkStatus.items[0];
@@ -96,7 +117,7 @@ describe("> ArrayType", () => {
     );
   });
 
-  it("Should be required ", async () => {
+  it('Should be required ', async () => {
     const schema = ArrayType().isRequired();
 
     const checkStatus = await schema.check(null);
@@ -109,7 +130,7 @@ describe("> ArrayType", () => {
     expect((await schema.check(undefined)).hasError).toBeTruthy();
   });
 
-  it("Should be within the number of items", async () => {
+  it('Should be within the number of items', async () => {
     const schema = ArrayType(NumberType()).rangeLength(2, 4);
 
     expect((await schema.check([1, 2])).hasError).toBeFalsy();
@@ -120,7 +141,7 @@ describe("> ArrayType", () => {
     );
   });
 
-  it("Should not exceed the maximum number of items", async () => {
+  it('Should not exceed the maximum number of items', async () => {
     const schema = ArrayType().maxLength(2);
 
     expect((await schema.check([1, 2, 3])).hasError).toBeTruthy();
@@ -129,7 +150,7 @@ describe("> ArrayType", () => {
     );
   });
 
-  it("Should not be less than the maximum number of items", async () => {
+  it('Should not be less than the maximum number of items', async () => {
     const schema = ArrayType().minLength(2);
 
     expect((await schema.check([1])).hasError).toBeTruthy();
@@ -138,13 +159,13 @@ describe("> ArrayType", () => {
     );
   });
 
-  it("Should not check nested items, drill = false, only arrayType rules", async () => {
+  it('Should not check nested items, drill = false, only arrayType rules', async () => {
     const arr1 = ArrayType<string>()
-      .minLength(2, "error1")
-      .of(StringType().isEmail("error2"));
+      .minLength(2, 'error1')
+      .of(StringType().isEmail('error2'));
 
     const check1 = await arr1.check(
-      ["miguel.ramos@websublime.com", "Upps", "ddd@bbb.com"],
+      ['miguel.ramos@websublime.com', 'Upps', 'ddd@bbb.com'],
       null,
       null,
       false

@@ -6,10 +6,10 @@ import {
   NumberType,
   ObjectType,
   StringType
-} from "../../src/index";
+} from '../../src/index';
 
-describe("> ObjectType", () => {
-  it("Should be a valid object", async () => {
+describe('> ObjectType', () => {
+  it('Should be a valid object', async () => {
     const schemaObject = ObjectType<{ age: number; email: string }>({
       age: NumberType().min(18),
       email: StringType().isEmail()
@@ -17,7 +17,7 @@ describe("> ObjectType", () => {
 
     let validation = await schemaObject.check({
       age: 19,
-      email: "miguel.ramos@websublime.com"
+      email: 'miguel.ramos@websublime.com'
     });
 
     expect(validation.properties?.age.hasError).toBeFalsy();
@@ -25,7 +25,7 @@ describe("> ObjectType", () => {
 
     validation = await schemaObject.check({
       age: 19,
-      email: "miguel.ramos"
+      email: 'miguel.ramos'
     });
 
     expect(validation.properties?.age.hasError).toBeFalsy();
@@ -42,7 +42,7 @@ describe("> ObjectType", () => {
     expect(validation.hasError).toBeFalsy();
   });
 
-  it("Should validate is empty", async () => {
+  it('Should validate is empty', async () => {
     const schemaObject = ObjectType<{ age: number; email: string }>({
       age: NumberType().min(18),
       email: StringType().isEmail()
@@ -53,7 +53,7 @@ describe("> ObjectType", () => {
     expect(nullValidation).toBeTruthy();
   });
 
-  it("Should be checked for object nesting.", async () => {
+  it('Should be checked for object nesting.', async () => {
     class Parent {
       age: number;
       email: string;
@@ -77,8 +77,8 @@ describe("> ObjectType", () => {
 
     const checkStatus = await schema.check({
       age: 17,
-      email: "miguel.ramos@websublime.com",
-      parent: { age: 40, email: "zicheng" }
+      email: 'miguel.ramos@websublime.com',
+      parent: { age: 40, email: 'zicheng' }
     });
 
     expect(checkStatus.hasError).toBeFalsy();
@@ -102,12 +102,12 @@ describe("> ObjectType", () => {
       errorMessages.number.min
     );
 
-    expect(parentCheckStatus?.properties?.age.errors[0].key).toEqual("age");
+    expect(parentCheckStatus?.properties?.age.errors[0].key).toEqual('age');
 
     const checkStatus2 = await schema.check({
       age: 18,
-      email: "miguel.ramos@websublime.com",
-      parent: { age: 50, email: "zicheng@dd.com" }
+      email: 'miguel.ramos@websublime.com',
+      parent: { age: 50, email: 'zicheng@dd.com' }
     });
 
     expect(checkStatus2.hasError).toBeFalsy();
@@ -121,7 +121,7 @@ describe("> ObjectType", () => {
     expect(parentCheckStatus2?.properties?.age.hasError).toBeFalsy();
   });
 
-  it("Should not check nested properties, drill = false, only objectType rules", async () => {
+  it('Should not check nested properties, drill = false, only objectType rules', async () => {
     const schemaObject = ObjectType<{ age: number; email: string }>({
       age: NumberType().min(18),
       email: StringType().isEmail()
@@ -130,7 +130,7 @@ describe("> ObjectType", () => {
     let validation = await schemaObject.check(
       {
         age: 17,
-        email: "miguel.ramos@websublime.com"
+        email: 'miguel.ramos@websublime.com'
       },
       null,
       null,

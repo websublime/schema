@@ -8,10 +8,10 @@
 |
 */
 
-import { errorMessages } from "../constants/error-messages.constant";
-import { schemaType } from "../constants/schema-type.constant";
-import { ErrorModel } from "../models/error.model";
-import { CheckResult, Maybe, Rule } from "../schema.types";
+import { errorMessages } from '../constants/error-messages.constant';
+import { schemaType } from '../constants/schema-type.constant';
+import { ErrorModel } from '../models/error.model';
+import { CheckResult, Maybe, Rule } from '../schema.types';
 
 /**
  * Base type model validation
@@ -94,20 +94,22 @@ export class BaseSchemaType<T = any> {
 
     const errors = [];
 
-    for (const rule of this.rules) {
-      const valid = await Promise.resolve(
-        rule.validationFn.call(this, value, parent, context)
-      );
-
-      if (!valid) {
-        errors.push(
-          new ErrorModel({
-            constraints: rule.params,
-            i18n: rule.errorMessage,
-            key: context,
-            value
-          })
+    if (!this.isEmpty(value)) {
+      for (const rule of this.rules) {
+        const valid = await Promise.resolve(
+          rule.validationFn.call(this, value, parent, context)
         );
+
+        if (!valid) {
+          errors.push(
+            new ErrorModel({
+              constraints: rule.params,
+              i18n: rule.errorMessage,
+              key: context,
+              value
+            })
+          );
+        }
       }
     }
 
@@ -130,7 +132,7 @@ export class BaseSchemaType<T = any> {
     return (
       value === null ||
       value === undefined ||
-      (typeof value === "string" && value.trim() === "")
+      (typeof value === 'string' && value.trim() === '')
     );
   }
 
