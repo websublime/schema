@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress';
 
 export default defineConfig({
+  base: '/schema/',
   title: 'WebSublime Schema',
   description: 'Schema validation model',
   themeConfig: {
