@@ -9,9 +9,9 @@ Schema package, have all types needed to describe a javascript object:
   - [BooleanType](#boolean)
   - [DateType](#date)
 
-- [Object](#Object)
+- [Object](/guide/object-type)
 
-- [Array](#Array)
+- [Array](/guide/array-type)
 
 ## Properties
 

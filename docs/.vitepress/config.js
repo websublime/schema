@@ -7,12 +7,12 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Getting Started', link: '/guide/' },
-      { text: 'GitHub', link: 'https://github.com/websublime/schema' },
-      { text: 'Concepts', link: '/Concepts' }
+      { text: 'GitHub', link: 'https://github.com/websublime/schema' }
+      // { text: 'Concepts', link: '/Concepts' }
     ],
     sidebar: {
-      '/guide/': getGuideSidebar(),
-      '/concepts/': getConceptsSidebar()
+      '/guide/': getGuideSidebar()
+      // '/concepts/': getConceptsSidebar()
     }
   }
 });
@@ -28,20 +28,20 @@ function getGuideSidebar() {
         { text: 'Object schema type', link: '/guide/object-type' },
         { text: 'Array schema type', link: '/guide/array-type' }
       ]
-    },
-    {
-      text: 'Concepts',
-      children: [
-        { text: 'Nest Object', link: '/concepts/objects' },
-        { text: 'Nest Array', link: '/concepts/arrays' },
-        {
-          text: 'Create custom validation',
-          link: '/concepts/custom-validation'
-        },
-        { text: 'Error messages', link: '/concepts/error-messages' },
-        { text: 'API Reference', link: '/api/' }
-      ]
     }
+    // {
+    //   text: 'Concepts',
+    //   children: [
+    //     { text: 'Nest Object', link: '/concepts/objects' },
+    //     { text: 'Nest Array', link: '/concepts/arrays' },
+    //     {
+    //       text: 'Create custom validation',
+    //       link: '/concepts/custom-validation'
+    //     },
+    //     { text: 'Error messages', link: '/concepts/error-messages' },
+    //     { text: 'API Reference', link: '/api/' }
+    //   ]
+    // }
   ];
 }
 
