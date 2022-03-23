@@ -7,15 +7,26 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Getting Started', link: '/guide/' },
+      { text: 'API', link: '/api/' },
       { text: 'GitHub', link: 'https://github.com/websublime/schema' }
       // { text: 'Concepts', link: '/Concepts' }
     ],
     sidebar: {
-      '/guide/': getGuideSidebar()
+      '/guide/': getGuideSidebar(),
+      '/api/': getApiSidebar()
       // '/concepts/': getConceptsSidebar()
     }
   }
 });
+
+function getApiSidebar() {
+  return [
+    {
+      text: 'Home',
+      children: [{ text: 'Schema', link: '/api/schema' }]
+    }
+  ];
+}
 
 function getGuideSidebar() {
   return [
