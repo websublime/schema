@@ -1,5 +1,13 @@
 # @websublime/schema
 
+## 1.2.0
+
+### Minor Changes
+
+- [#12](https://github.com/websublime/schema/pull/12) [`31ddc54`](https://github.com/websublime/schema/commit/31ddc54d7c7272778fce8758c9e1a3eeca58724c) Thanks [@Hulago](https://github.com/Hulago)! - Public documentation
+
+  Release and build github page for great documentation.
+
 ## 1.1.0
 
 ### Minor Changes
