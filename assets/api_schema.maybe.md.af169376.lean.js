@@ -1,0 +1,1 @@
+import{_ as a,c as e,o as s,a as t}from"./app.7bb83f59.js";const m='{"title":"Maybe type","description":"","frontmatter":{},"headers":[{"level":2,"title":"Maybe type","slug":"maybe-type"}],"relativePath":"api/schema.maybe.md"}',n={},p=t("",5),o=[p];function c(r,l,d,_,i,y){return s(),e("div",null,o)}var k=a(n,[["render",c]]);export{m as __pageData,k as default};
