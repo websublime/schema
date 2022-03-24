@@ -1,5 +1,11 @@
 # @websublime/schema
 
+## 1.2.1
+
+### Patch Changes
+
+- [`a8b0b58`](https://github.com/websublime/schema/commit/a8b0b585f709a0977853e09bffec93ec33c8d50b) Thanks [@miguelramos](https://github.com/miguelramos)! - GH build fix
+
 ## 1.2.0
 
 ### Minor Changes
